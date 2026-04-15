@@ -157,11 +157,13 @@ body {
 .primaryMenu #primaryMenuBtn .bar {
 	width: 26px;
 	height: 3px;
-	background-color: var(--primary-heading-clr);
+	background-color: #d99e18;
 	border-radius: 5px;
 	margin: 5px auto;
 	transition: 0.4s cubic-bezier(1, 0.2, 0.2, 1);
 }
+
+
 
 
 /*   *******   Home Section Styling Ends   *******   */
@@ -171,7 +173,7 @@ body {
 	position: relative;
 	width: 100%;
 	height: 100vh;
-	background: url('/hero.jpg') no-repeat center center/cover;
+	background: url('/img/hero.jpg') no-repeat center center/cover;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -251,10 +253,10 @@ body {
 .servicesSection .serviceTitle h2 {
 	position: relative;
 	display: inline-block;
-	font-size: var(--large-heading);
+	font-size: 30px;
 	color: white;
 	text-transform: uppercase;
-	margin-bottom: 30px;
+	margin-bottom: 5px;
 }
 
 .servicesSection .serviceTitle h2::before {
@@ -262,7 +264,7 @@ body {
 	position: absolute;
 	width: 100%;
 	height: 1px;
-	top: 120%;
+	top: 110%;
 	left: 0;
 	background-color: #d99e18;
 }
@@ -272,9 +274,9 @@ body {
 	position: absolute;
 	width: 40%;
 	height: 3px;
-	top: calc(120% - 1px);
+	top: calc(110% - 1px);
 	left: 0;
-	background-color: var(--primary-clr);
+	background-color: #d99e18;
 }
 
 .servicesSection .serviceTitle p {
@@ -302,6 +304,7 @@ body {
 	cursor: pointer;
 	transition: transform 0.4s,
 		box-shadow 0.4s;
+	border-radius: 10px;
 }
 
 .serviceContents .serviceBox:hover {
@@ -456,8 +459,8 @@ body {
 }
 
 .aboutContents .aboutInfo button:hover {
-	color: var(--primary-clr);
-	border-color: var(--secondary-heading-clr);
+	color: black;
+
 }
 
 
@@ -484,7 +487,7 @@ body {
 	font-size: 30px;
 	color: white;
 	text-transform: uppercase;
-	margin-bottom: 30px;
+	margin-bottom: 5px;
 }
 
 .portfolioSection .portfolioTitle h2::before {
@@ -492,7 +495,7 @@ body {
 	position: absolute;
 	width: 100%;
 	height: 1px;
-	top: 120%;
+	top: 110%;
 	left: 0;
 	background-color: #d99e18;
 }
@@ -502,9 +505,9 @@ body {
 	position: absolute;
 	width: 40%;
 	height: 3px;
-	top: calc(120% - 1px);
+	top: calc(110% - 1px);
 	left: 0;
-	background-color: var(--primary-clr);
+	background-color: #d99e18;
 }
 
 .portfolioContents .portfolioBtns {
@@ -655,20 +658,43 @@ body {
 /* ===== CONTACTO NUEVO ESTILO ===== */
 
 .contactContainer {
-
 	max-width: 1100px;
 	margin: 0 auto;
 	background: #111114;
 	padding: 80px 20px;
 	border-radius: 12px;
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+	text-align: center;
 }
 
-.contactContainer .contactTitle {
-	text-align: center;
-	font-size: 2rem;
+.contactContainer h2 {
+	position: relative;
+	display: inline-block;
+	font-size: 30px;
 	color: white;
-	font-weight: 700;
+	text-transform: uppercase;
+	margin-bottom: 5px;
+	text-align: center;
+}
+
+.contactContainer h2::before {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 1px;
+	top: 110%;
+	left: 0;
+	background-color: #d99e18;
+}
+
+.contactContainer h2::after {
+	content: '';
+	position: absolute;
+	width: 40%;
+	height: 3px;
+	top: calc(110% - 1px);
+	left: 0;
+	background-color: #d99e18;
 }
 
 .contactContainer .contactSubtitle {
@@ -683,6 +709,7 @@ body {
 	justify-content: space-between;
 	flex-wrap: wrap;
 	gap: 40px;
+	text-align: start;
 }
 
 .contactInfoBox {
@@ -859,8 +886,7 @@ body {
 		height: calc(100vh - 65px);
 		top: 65px;
 		right: -100%;
-		background-color: var(--bg-clr-one);
-		border-top: 1px solid #111;
+		background-color: #0a3d66;
 		display: flex;
 		align-items: center;
 		flex-direction: column;
@@ -878,9 +904,11 @@ body {
 	}
 
 	.homeSection .primaryMenu ul li a {
-		font-size: 18px;
+		font-size: 25px;
 		font-weight: 600;
 	}
+
+
 
 	#primaryMenuBtn.active .bar:nth-child(2) {
 		transform: translateX(-30px);
