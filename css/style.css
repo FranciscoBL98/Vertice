@@ -173,7 +173,7 @@ body {
 	position: relative;
 	width: 100%;
 	height: 100vh;
-	background: url('/img/hero.png') no-repeat center center/cover;
+	background: url('/hero.png') no-repeat center center/cover;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -279,10 +279,7 @@ body {
 	background-color: #d99e18;
 }
 
-.servicesSection .serviceTitle p {
-	font-size: var(--text-fontSize);
-	color: var(--secondary-heading-clr);
-}
+
 
 .servicesSection .serviceContents {
 	display: flex;
@@ -294,7 +291,7 @@ body {
 	flex-basis: 32%;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
 	text-align: center;
 	padding: 25px 20px 35px;
@@ -316,14 +313,14 @@ body {
 	box-shadow: 0px 3px 18px 0px #000;
 	background-color: white;
 
+}
 
-	h2 {
-		color: black;
-	}
+.serviceContents .serviceBox:hover h2 {
+	color: black;
+}
 
-	p {
-		color: black;
-	}
+.serviceContents .serviceBox:hover li {
+	color: black;
 }
 
 .serviceContents .serviceBox i {
@@ -333,15 +330,36 @@ body {
 
 .serviceContents .serviceBox h2 {
 	padding: 15px 0px 10px;
-	color: white;
+	color: #d99e18;
 	font-size: 20px;
+	min-height: 50px;
+	/* ajusta hasta que todos calcen */
+
 }
 
 .serviceContents .serviceBox p {
 	font-size: var(--text-fontSize);
 	color: whitesmoke;
 	line-height: 1.3;
+	text-align: center;
 }
+
+
+
+.serviceContents .serviceBox li {
+	list-style: none;
+	margin-bottom: 6px;
+	color: white;
+}
+
+
+.serviceContents .serviceBox li::before {
+	content: "✔";
+	color: #f5b400;
+	margin-right: 8px;
+}
+
+
 
 /*  *******   Services Section Styling Ends   *******  */
 
