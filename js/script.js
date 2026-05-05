@@ -117,3 +117,10 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.2 });
 
 revealElements.forEach(el => observer.observe(el));
+
+
+
+setTimeout(() => {
+	const tooltip = document.getElementById('wspTooltip');
+	if (tooltip) tooltip.style.display = 'none';
+}, 1000000);
