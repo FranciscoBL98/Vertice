@@ -114,3 +114,7 @@ if (tooltip) {
 		tooltip.style.display = 'none';
 	}, 5000);
 }
+
+document.querySelectorAll("img").forEach(img => {
+	img.loading = "lazy";
+});
