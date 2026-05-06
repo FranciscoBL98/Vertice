@@ -166,7 +166,7 @@ body {
 	position: relative;
 }
 
-.logo {
+.logo-img {
 	width: 150px;
 }
 
@@ -484,9 +484,6 @@ body {
 	grid-area: aboutInfo;
 }
 
-.aboutContents .aboutSkills {
-	grid-area: aboutSkills;
-}
 
 .aboutSection .aboutContents {
 	display: grid;
@@ -995,9 +992,7 @@ body {
 		grid-template-columns: repeat(2, 1fr);
 	}
 
-	.contactForm .messageForm .halfWidth {
-		flex-basis: 100%;
-	}
+
 }
 
 @media(max-width: 968px) {
@@ -1079,13 +1074,6 @@ body {
 		/*background-blend-mode: hard-light;*/
 	}
 
-	.resumeSection .resumeContentsRow {
-		grid-template-columns: 1fr;
-	}
-
-	.resumeContentsRow .resumeEvenColumn {
-		margin-top: 30px;
-	}
 
 	.portfolioPopupBox img {
 		max-width: 92%;

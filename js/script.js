@@ -1,117 +1,102 @@
+// ===============================
+// MENU MOBILE
+// ===============================
+const menuBtn = document.querySelector('#primaryMenuBtn');
+const menu = document.querySelector('.primaryMenu ul');
+const menuLinks = document.querySelectorAll('.primaryMenu ul li a');
 
-// *****   JavaScript Code For Home Section Starts   *****  
-
-// Access The required elements and store it in variables
-var menu_btn = document.querySelector('#primaryMenuBtn');
-var menu = document.querySelector('.primaryMenu ul');
-var menuItems = document.querySelectorAll('.primaryMenu ul li a');
-
-// Add a click event to the hamburger button
-menu_btn.addEventListener('click', function () {
-	menu_btn.classList.toggle('active');
+menuBtn?.addEventListener('click', () => {
+	menuBtn.classList.toggle('active');
 	menu.classList.toggle('active');
 });
 
-// Loop through all the menu items and add a click event
-for (let i = 0; i < menuItems.length; i++) {
-	menuItems[i].addEventListener('click', menuFunction);
-}
-function menuFunction() {
-	menu.classList.remove('active');
-	menu_btn.classList.remove('active');
-}
-
-// *****   JavaScript Code For Home Section Ends   *****  
-
-
-//  *****   JavaScript Code For Portfolio Section Starts   *****
-
-// Access the necessary html elements and store it variables
-var allFilters = document.querySelectorAll('.portfolioBtns li.btn');
-var allCards = document.querySelectorAll('.portfolioGallery .card');
-
-// Add a click event to the buttons
-for (var i = 0; i < allFilters.length; i++) {
-	allFilters[i].addEventListener('click', filterFunction);
-}
-// Define the function
-function filterFunction() {
-	// Access the active button
-	var activeTab = document.querySelector('.portfolioBtns .active');
-	// Remove the active class from the button
-	activeTab.classList.remove('active');
-	// Add active class to the button which is clicked
-	this.classList.add('active');
-
-	// Get the value of the 'data-filter' attribute of the clicked button
-	var filter = this.getAttribute('data-filter');
-
-	// Check if any other button is clicked except the 'all' (All Work) button
-	// if condition is true,
-	// then hide all other cards, except those related to the clicked button
-	if (filter != 'all') {
-		for (let i = 0; i < allCards.length; i++) {
-			allCards[i].classList.add('hide');
-			var currentItem = allCards[i].getAttribute('data-item');
-			if (currentItem == filter) {
-				allCards[i].classList.add('active');
-				allCards[i].classList.remove('hide');
-			}
-		}
-	}
-	// otherwise display all the cards
-	else {
-		for (let i = 0; i < allCards.length; i++) {
-			allCards[i].classList.remove('hide');
-			allCards[i].classList.add('active');
-		}
-	}
-}
-
-// Add a click event to all the cards
-for (let i = 0; i < allCards.length; i++) {
-	allCards[i].addEventListener('click', popupFunction);
-}
-// if a card is clicked then display the bopup box and show the related image
-function popupFunction() {
-	document.querySelector('.portfolioPopupBox').
-		style.display = 'block';
-	document.querySelector('.portfolioPopupBox img').
-		src = this.querySelector('.imgBox img').getAttribute('src');
-}
-
-// When you click the cancel button, then hide the popup box
-document.querySelector('.portfolioPopupBox span').
-	addEventListener('click', function () {
-		document.querySelector('.portfolioPopupBox').style.display = 'none';
+menuLinks.forEach(link => {
+	link.addEventListener('click', () => {
+		menu.classList.remove('active');
+		menuBtn.classList.remove('active');
 	});
-
-//  *****   JavaScript Code For Portfolio Section Ends   *****
-
+});
 
 
+// ===============================
+// PORTFOLIO FILTER
+// ===============================
+const filters = document.querySelectorAll('.portfolioBtns li.btn');
+const cards = document.querySelectorAll('.portfolioGallery .card');
+
+filters.forEach(btn => {
+	btn.addEventListener('click', () => {
+		document.querySelector('.portfolioBtns .active')?.classList.remove('active');
+		btn.classList.add('active');
+
+		const filter = btn.dataset.filter;
+
+		cards.forEach(card => {
+			const item = card.dataset.item;
+
+			if (filter === 'all' || item === filter) {
+				card.classList.remove('hide');
+				card.classList.add('active');
+			} else {
+				card.classList.add('hide');
+				card.classList.remove('active');
+			}
+		});
+	});
+});
 
 
-//  *****   JavaScript Code For Sticky Menubar Starts   ***** 
+// ===============================
+// PORTFOLIO POPUP
+// ===============================
+const popupBox = document.querySelector('.portfolioPopupBox');
+const popupImg = popupBox?.querySelector('img');
+const popupClose = popupBox?.querySelector('span');
 
-var menuBar = document.querySelector('.homeSection .primaryMenu');
-window.addEventListener('scroll', scrollFunction);
-function scrollFunction() {
-	menuBar.classList.toggle('stickyMenuBar', window.scrollY > 250);
-}
+cards.forEach(card => {
+	card.addEventListener('click', () => {
+		const img = card.querySelector('img');
+		if (!img) return;
 
-//  *****   JavaScript Code For Sticky Menubar Ends   ***** 
+		popupBox.style.display = 'block';
+		popupImg.src = img.src;
+	});
+});
+
+popupClose?.addEventListener('click', () => {
+	popupBox.style.display = 'none';
+});
+
+// cerrar al hacer click fuera
+popupBox?.addEventListener('click', (e) => {
+	if (e.target === popupBox) {
+		popupBox.style.display = 'none';
+	}
+});
 
 
-// ***** Animaciones al hacer scroll *****
+// ===============================
+// STICKY NAVBAR
+// ===============================
+const menuBar = document.querySelector('.homeSection .primaryMenu');
 
-const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-zoom');
+window.addEventListener('scroll', () => {
+	menuBar?.classList.toggle('stickyMenuBar', window.scrollY > 250);
+});
 
-const observer = new IntersectionObserver((entries) => {
+
+// ===============================
+// SCROLL ANIMATIONS
+// ===============================
+const revealElements = document.querySelectorAll(
+	'.reveal, .reveal-left, .reveal-right, .reveal-zoom'
+);
+
+const observer = new IntersectionObserver(entries => {
 	entries.forEach(entry => {
 		if (entry.isIntersecting) {
 			entry.target.classList.add('active');
-			observer.unobserve(entry.target); // Evita que se repita
+			observer.unobserve(entry.target);
 		}
 	});
 }, { threshold: 0.2 });
@@ -119,8 +104,13 @@ const observer = new IntersectionObserver((entries) => {
 revealElements.forEach(el => observer.observe(el));
 
 
+// ===============================
+// TOOLTIP WHATSAPP
+// ===============================
+const tooltip = document.getElementById('wspTooltip');
 
-setTimeout(() => {
-	const tooltip = document.getElementById('wspTooltip');
-	if (tooltip) tooltip.style.display = 'none';
-}, 1000000);
+if (tooltip) {
+	setTimeout(() => {
+		tooltip.style.display = 'none';
+	}, 5000);
+}
