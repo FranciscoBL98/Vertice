@@ -565,9 +565,12 @@ body {
 	padding-bottom: 8px;
 }
 
+.aboutInfo .button {
+	margin-top: 10px;
+}
 
 
-.aboutContents .aboutInfo button {
+.aboutContents .aboutInfo a {
 	min-width: 150px;
 	padding: 8px 18px;
 	font-size: var(--btn-fontSize);
@@ -576,13 +579,14 @@ body {
 	background-color: #d99e18;
 	border: 1px solid var(--primary-clr);
 	border-radius: 25px;
-	margin-top: 20px;
+	margin-top: 40px;
 	cursor: pointer;
 	transition: all 0.4s;
+	text-decoration: none;
 
 }
 
-.aboutContents .aboutInfo button:hover {
+.aboutContents .aboutInfo a:hover {
 	color: black;
 	transform: translateY(-2px);
 
